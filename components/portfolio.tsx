@@ -7,8 +7,10 @@ import Image from "next/image";
 
 import { useSelector } from "react-redux";
 import { Navbar } from "./navbar";
-import { Skills } from "./skills";
+
 import { Projects } from "./Projects";
+
+import SkillsSection from "./skills";
 
 const Portfolio = () => {
   const theme = useSelector(
@@ -60,7 +62,7 @@ const Portfolio = () => {
         </section>
 
         {/* About Section */}
-        <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+        <section className="py-16 px-4">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold mb-8">About Me</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -80,7 +82,7 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
-        <Skills />
+        <SkillsSection />
 
         <Projects />
 

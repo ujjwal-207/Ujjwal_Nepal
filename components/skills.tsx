@@ -1,30 +1,20 @@
 "use client";
-
-// import { skills } from "@/public/data";
 import React from "react";
-// import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import RotatingCard from "./ui/rotatingCard";
+import RotatingCards from "./ui/rotatingCards";
 
-export const Skills = () => {
+const SkillsSection = () => {
   return (
-    <div>
-      <RotatingCard />
-    </div>
-    // <div className="grid grid-cols-2 gap-4">
-    //   {skills.map((skillGroup) => (
-    //     <Card key={skillGroup.category}>
-    //       <CardHeader>
-    //         <CardTitle>{skillGroup.category}</CardTitle>
-    //       </CardHeader>
-    //       <CardContent>
-    //         <ul className="list-disc pl-4">
-    //           {skillGroup.items.map((skill) => (
-    //             <li key={skill}>{skill}</li>
-    //           ))}
-    //         </ul>
-    //       </CardContent>
-    //     </Card>
-    //   ))}
-    // </div>
+    <section className="py-16 px-4 ">
+      <div className="container mx-auto">
+        <h2 className="text-3xl font-bold mb-8">Skills</h2>
+        <div className="grid md:grid-cols-1 gap-8">
+          <div className="h-[600px] relative">
+            <RotatingCards />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
+
+export default SkillsSection;
