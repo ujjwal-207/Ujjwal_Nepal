@@ -87,7 +87,7 @@ const Portfolio = () => {
         <Projects />
 
         {/* Contact Section */}
-        <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+        <section className="py-16 px-4">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-8">
               Let&apos;s Work Together

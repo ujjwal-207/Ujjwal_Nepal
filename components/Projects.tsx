@@ -18,13 +18,21 @@ export const Projects = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <Card key={project.title} className="overflow-hidden group">
-              <Image
+            <Card key={project.title} className="overflow-hidden group ">
+              {/* <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 width={10}
                 height={10}
+              /> */}
+              <video
+                src={project.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="pointer-events-none mx-auto  w-full object-cover object-top" // needed because random black line at bottom of video
               />
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>

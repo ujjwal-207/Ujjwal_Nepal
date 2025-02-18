@@ -11,20 +11,22 @@ export const skills = [
 ];
 export const projects = [
   {
-    title: "E-commerce Platform",
+    title: "Group-Diary",
     description:
-      "Full-stack e-commerce solution with real-time inventory management",
-    tags: ["MERN", "Docker", "Redux"],
+      "Nextjs application where you can share your note and collabrate with your friends for different research in realtime ",
+    tags: ["Nextjs", "livedocs", "typescript"],
     image: "/api/placeholder/400/300",
     github: "#",
     demo: "#",
+    video: "data/groupdiary1.mp4",
   },
   {
-    title: "Task Management System",
-    description: "Collaborative task management with real-time updates",
-    tags: ["Next.js", "MongoDB", "WebSocket"],
+    title: "Kura-kani",
+    description: "Real time video calling app",
+    tags: ["Typescript", "React", "Express", "getStream"],
     image: "/api/placeholder/400/300",
     github: "#",
     demo: "#",
+    video: "data/kurakani.mp4",
   },
 ];

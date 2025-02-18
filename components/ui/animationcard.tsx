@@ -32,7 +32,7 @@ const Card = () => {
           </svg>
         </div>
         <div
-          data-text="Earn"
+          data-text="Response"
           style={{ "--r": "5" } as React.CSSProperties}
           className="glass"
         >
@@ -60,7 +60,7 @@ const StyledWrapper = styled.div`
   .container .glass {
     position: relative;
     width: 180px;
-    height: 200px;
+    height: 100px;
     background: linear-gradient(#fff2, transparent);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
@@ -84,7 +84,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 20px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: center;
