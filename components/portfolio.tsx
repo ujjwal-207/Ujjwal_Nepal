@@ -51,11 +51,11 @@ const Portfolio = () => {
             </div>
             <div className="relative">
               <Image
-                src="/api/placeholder/400/400"
+                src="/data/ujj.png"
                 alt="Ujjwal Nepal"
                 className="rounded-full w-64 h-64 mx-auto object-cover border-4 border-blue-500"
-                width={10}
-                height={10}
+                width={90}
+                height={90}
               />
             </div>
           </div>
