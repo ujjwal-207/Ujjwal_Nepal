@@ -89,9 +89,9 @@ const RotatingCards = () => {
       black_icon: "⚛",
     },
     {
-      title: "AWS",
+      title: "Python",
       description: "Cloud infrastructure and services",
-      icon: "☁️",
+      icon: "🐍",
       colorCard: "252, 142, 142",
       black_icon: "⚛",
     },

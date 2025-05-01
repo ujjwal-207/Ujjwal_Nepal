@@ -18,7 +18,7 @@ const Portfolio = () => {
   );
 
   return (
-    <>
+    <div>
       <Navbar />
       <div
         className={`min-h-screen ${
@@ -26,7 +26,7 @@ const Portfolio = () => {
         }`}
       >
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-4">
+        <section className="pt-32  px-4">
           <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">
@@ -53,16 +53,16 @@ const Portfolio = () => {
               <Image
                 src="/data/ujj.png"
                 alt="Ujjwal Nepal"
-                className="rounded-full w-64 h-64 mx-auto object-cover border-4 border-blue-500"
-                width={90}
-                height={90}
+                className="rounded-full w-48 h-72 mx-auto object-cover border-4 border-blue-500"
+                width={70}
+                height={70}
               />
             </div>
           </div>
         </section>
 
         {/* About Section */}
-        <section className="py-16 px-4">
+        <section className="py-0 px-4">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold mb-8">About Me</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -124,7 +124,7 @@ const Portfolio = () => {
           </div>
         </footer>
       </div>
-    </>
+      </div>
   );
 };
 
