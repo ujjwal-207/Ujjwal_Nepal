@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "./ui/card";
-import { projects } from "@/public/data";
+import { featuredprojects } from "@/public/data";
 
 
 import Animationcard from "./ui/animationcard";
@@ -14,7 +14,7 @@ export const Projects = () => {
       
         <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {featuredprojects.map((project) => (
             <Card key={project.title} className="overflow-hidden group ">
               <video
                 src={project.video}
