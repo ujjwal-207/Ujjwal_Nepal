@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Mail, Download } from "lucide-react";
+import {Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useSelector } from "react-redux";
@@ -8,6 +8,10 @@ import { useSelector } from "react-redux";
 import { Projects } from "./Projects";
 import SkillsSection from "./skills";
 import Navbar from "./navbar";
+import { CiLinkedin } from "react-icons/ci"
+import { FaGithub } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 const Portfolio = () => {
   const theme = useSelector(
@@ -42,8 +46,8 @@ const Portfolio = () => {
                   <Mail className="h-4 w-4" />
                   Contact Me
                 </Button>
-                <Button variant="outline" className="gap-2">
-                  <Download className="h-4 w-4" />
+                <Button variant="outline" className="gap-2 text-gray-600 dark:text-gray-300">
+                  <Download className="h-4 w-4 text-gray-600 dark:text-gray-300" />
                   Download CV
                 </Button>
               </div>
@@ -95,18 +99,21 @@ const Portfolio = () => {
               <Mail className="h-4 w-4" />
               Email Me
             </Button>
-            <Button variant="outline" className="gap-2">
-              <Linkedin className="h-4 w-4" />
-              LinkedIn
+            <Link href={"https://www.linkedin.com/in/ujjwal-nepal-33980a245/"}>
+            <Button variant="outline" className="gap-2 bg-[#0077B5]">
+              <CiLinkedin className="h-4 w-4" />
+              </Button>
+              </Link>
+            <Link href={"https://github.com/ujjwal-207"}>
+            <Button variant="outline" className="gap-2 bg-black ">
+              <FaGithub className="h-4 w-4" />
+              </Button>
+              </Link>
+              <Link href={"https://x.com/Ujee690"}>
+            <Button variant="outline" className="gap-2 bg-black">
+              <FaSquareXTwitter className="h-4 w-4" />
             </Button>
-            <Button variant="outline" className="gap-2">
-              <Github className="h-4 w-4" />
-              GitHub
-            </Button>
-            <Button variant="outline" className="gap-2">
-              <Twitter className="h-4 w-4" />
-              Twitter
-            </Button>
+            </Link>
           </div>
         </section>
 
