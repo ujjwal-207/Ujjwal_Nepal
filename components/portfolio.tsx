@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 import { useSelector } from "react-redux";
-import { Navbar } from "./navbar";
+
 
 import { Projects } from "./Projects";
 
 import SkillsSection from "./skills";
+
+import Navbar from "./navbar";
 
 const Portfolio = () => {
   const theme = useSelector(
@@ -18,8 +20,8 @@ const Portfolio = () => {
   );
 
   return (
-    <div>
-      <Navbar />
+    <div className="overflow-hidden container " >
+      <Navbar/>
       <div
         className={`min-h-screen ${
           theme ? "bg-gray-900 text-white" : "bg-white text-gray-900"
