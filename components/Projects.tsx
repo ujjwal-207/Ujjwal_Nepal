@@ -11,7 +11,7 @@ export const Projects = () => {
   //   const [activeFilter, setActiveFilter] = useState("all");
   return (
     <section className="py-16 px-4 ">
-      <div className="container mx-auto">
+      
         <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
@@ -44,7 +44,7 @@ export const Projects = () => {
             </Card>
           ))}
         </div>
-      </div>
+      
     </section>
   );
 };
