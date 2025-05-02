@@ -12,6 +12,7 @@ import { CiLinkedin } from "react-icons/ci"
 import { FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import Footer from "./Footer";
 
 const Portfolio = () => {
   const theme = useSelector(
@@ -118,9 +119,7 @@ const Portfolio = () => {
         </section>
 
         {/* Footer */}
-        <footer className="py-8 border-t text-center">
-          <p>© 2024 Ujjwal Nepal. All rights reserved.</p>
-        </footer>
+        <Footer/>
       </div>
     </div>
   );
