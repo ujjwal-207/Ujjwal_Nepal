@@ -1,11 +1,16 @@
+"use client"
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 interface CardProps {
   title: string;
   author: string;
   imgSrc: string;
+  cardDescription:string;
+  github:string;
 }
 
 interface CardDimensions {
@@ -13,7 +18,7 @@ interface CardDimensions {
   height: number;
 }
 
-export default function Card({ title, author, imgSrc }: CardProps) {
+export default function Card({ title, author, imgSrc,cardDescription,github }: CardProps) {
   const [isCardOpened, setIsCardOpened] = useState(false);
   const [cardDimensions, setCardDimensions] = useState<CardDimensions>({ width: 0, height: 0 });
   const card = useRef<HTMLDivElement>(null);
@@ -36,22 +41,19 @@ export default function Card({ title, author, imgSrc }: CardProps) {
       >
         <CardImage src={imgSrc} />
         <CardHeader isCardOpened={isCardOpened} layout="position">
-          {title}
+          {title} 
         </CardHeader>
         <CardSubtitle isCardOpened={isCardOpened} layout="position">
-          {author}
+          {author} <br/>
+          <Link href={github} className="inline-flex items-center"><span><FaGithub/></span><span>Ujjwal Nepal</span></Link>
         </CardSubtitle>
 
         {isCardOpened && (
           <CardDescription initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            {cardDescription}
+            
           </CardDescription>
+          
         )}
       </CardLink>
       {isCardOpened && (
@@ -109,7 +111,7 @@ const CardHeader = styled(motion.h2)<StyledCardProps>`
 
 const CardSubtitle = styled(motion.p)<StyledCardProps>`
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1em;
   margin: 0 0 1rem;
   color: ${(props) => (props.isCardOpened ? "#afafaf" : props.theme.subtitle)};
 `;
@@ -137,4 +139,4 @@ const CardBackground = styled(motion.div)`
   background: rgba(10, 10, 10, 0.7);
 `;
 
-// Note: AbsoluteCardContainer isn't used in the component but is defined in your styles
+

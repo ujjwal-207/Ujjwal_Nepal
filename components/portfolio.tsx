@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 
-import { Projects } from "./Projects";
+import { Projects } from "./FeaturedProjects";
 import SkillsSection from "./skills";
 import Navbar from "./navbar";
 import { CiLinkedin } from "react-icons/ci"

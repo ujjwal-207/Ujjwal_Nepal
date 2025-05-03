@@ -5,6 +5,9 @@ import { featuredprojects } from "@/public/data";
 
 
 import Animationcard from "./ui/animationcard";
+import Link from "next/link";
+import { Button } from "./ui/button";
+
 
 
 export const Projects = () => {
@@ -39,10 +42,17 @@ export const Projects = () => {
                     </span>
                   ))}
                 </div>
+                <Link href={'/projects'}>
                 <Animationcard />
+                </Link>
               </CardContent>
             </Card>
           ))}
+          <Link href={'/projects'}>
+          <Button variant={"link"} className="bg-black px-10 ">
+            <span className="text-white">For More 🔗</span>
+          </Button>
+          </Link>
         </div>
       
     </section>
