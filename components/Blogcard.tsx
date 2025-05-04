@@ -1,7 +1,5 @@
 "use client"
 import * as React from "react"
-
-import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -9,43 +7,24 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { useSelector } from "react-redux";
-;
+} from "@/components/ui/card";
 import { IBlogPostsEdge } from "@/lib/types";
 import Link from "next/link";
-
-
-
 export function BlogCard({blog}: {blog:IBlogPostsEdge}) {
-    const theme = useSelector(
-        (state: { theme: { darkMode: boolean } }) => state.theme.darkMode
-      );
+    
   return (
-    <div
-      className={` ${
-        theme ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
-    >
-      <Link href={`blogs/${blog.node.slug}`}>
-          
-    <Card>
+    <Link href={`blogs/${blog.node.slug}`}>
+          <Card className=" bg-white/75 dark:bg-gray-900 mt-3 border-2">
       <CardHeader>
-        <CardTitle>{blog.node.title}</CardTitle>
+        <CardTitle className="text-gray-600 dark:text-gray-300">{blog.node.title}</CardTitle>
         <CardDescription>{blog.node.brief}</CardDescription>
       </CardHeader>
       <CardContent>
         
       </CardContent>
       <CardFooter className="flex justify-between">
-        
-        <Button>Deploy</Button>
-      </CardFooter>
+        </CardFooter>
     </Card>
     </Link>
-    
-    </div>
-    
-   
-  )
+)
 }

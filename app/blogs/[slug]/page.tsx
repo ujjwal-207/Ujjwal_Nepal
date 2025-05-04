@@ -1,4 +1,7 @@
+import Footer from '@/components/Footer';
 import MarkdownRenderer from '@/components/MarkdownRender';
+import Navbar from '@/components/navbar';
+import Theme from '@/components/theme';
 import { BASE_URL } from '@/lib/constant';
 import { getPostSlugs, getSinglePost } from '@/lib/query';
 import { Metadata } from 'next';
@@ -72,39 +75,49 @@ export default async function PostPage({params} : {params: Promise<{slug:string}
     const post = await getSinglePost(slug);
     const title = post?.title
     const image = post?.coverImage
-    // const url = post?.url
   return (
-    <article className="max-w-3xl mx-auto px-4 py-8 ">
-    {image && (
-      <Image
-        src={"image"}
-        alt={"title"}
-        width={1200}
-        height={300}
-        className="w-full h-auto rounded-lg mb-5"
-      />
-    )}
-    <h1 className="text-4xl font-bold ">{title}</h1>
+  <Theme>
+  
+  <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8 overflow-hidden">
+ <Navbar/>
+  <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+  {image && (
+    <Image
+      src={image?.url || '/default-image.jpg'}
+      alt={title || "image not fond"}
+      width={1200}
+      height={300}
+      className="w-full h-auto rounded-2xl mb-8 shadow-md object-cover"
+    />
+  )}
 
-    <div className="flex gap-2 items-center text-sm text-gray-500 font-medium my-4">
-      <div className="flex items-center gap-2 max-sm:hidden ">
-        
-      </div>
-      <span className="text-gray-400 max-sm:hidden"> • </span>
+  <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
+    {title}
+  </h1>
 
-      <span className="flex items-center gap-1">
-        <IoBookOutline/> {post?.readTimeInMinutes} min read
-      </span>
-      <span className="text-gray-400"> • </span>
+  <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-6 space-x-2">
+    <span className="flex items-center space-x-1">
+      <IoBookOutline className="text-lg" />
+      <span>{post?.readTimeInMinutes} min read</span>
+    </span>
+    <span>•</span>
+    <span>
       {new Date(post?.publishedAt ?? "").toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
       })}
-    </div>
-    <div className="prose lg:prose-xl">
-      <MarkdownRenderer content={post?.content?.markdown ?? ""} />
-    </div>
-  </article>
-  )
+    </span>
+  </div>
+
+  <div className="prose dark:prose-invert prose-lg max-w-none">
+    <MarkdownRenderer content={post?.content?.markdown ?? ""} />
+  </div>
+ 
+</article>
+<Footer/>
+</div>
+</Theme>
+ )
 }

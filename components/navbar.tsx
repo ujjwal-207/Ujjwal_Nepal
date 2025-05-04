@@ -16,7 +16,6 @@ const navItems = [
   { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
   { label: 'Blog', path: '/blogs' },
-  { label: 'Work', path: '/work' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -33,10 +32,11 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
   };
 
   return (
-    <nav className="sticky  top-0 w-full py-4 backdrop-blur-sm bg-white/75 dark:bg-gray-900/75 z-50">
+    <nav className="sticky  top-0 w-full py-4 backdrop-blur-sm  z-50">
       <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8">  
       <div className="flex justify-between items-center ">
-        <h1 className="text-xl font-bold">Ujjwal Nepal</h1>
+        <Link href={"/"}>
+        <h1 className="text-xl font-bold text-black dark:text-white ">Ujjwal Nepal</h1></Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
                 <span
                   className={`relative text-base font-medium transition-colors duration-300 ${
                     isActive
-                      ? 'text-primary-600 dark:text-primary-400'
+                      ? 'text-blue-600 dark:text-blue-400'
                       : 'text-gray-700 hover:text-gray-950 dark:text-gray-300 dark:hover:text-gray-950'
                   }`}
                   onClick={onItemClick}
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden mt-4 bg-white/95 dark:bg-gray-900/95 rounded-lg shadow-lg"
+          className="md:hidden mt-4 bg-white/95 dark:bg-white/95 rounded-lg shadow-lg"
         >
           <nav className="flex flex-col space-y-4 p-4">
             {navItems.map((item) => {

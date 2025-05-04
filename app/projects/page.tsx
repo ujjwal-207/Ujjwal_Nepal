@@ -1,29 +1,28 @@
 "use client"
 
 import MainSection from "@/components/ProjectSection";
-import { useSelector } from "react-redux";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
-export default function Projects() {
+import Theme from "@/components/theme";
+export default function Projects({children} : {children: React.ReactNode}) {
+  
  
-  const theme = useSelector(
-    (state: { theme: { darkMode: boolean } }) => state.theme.darkMode
-  );
+  
 
   return (
-    <div
-      className={` ${
-        theme ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
-    >
+    <Theme>
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
         <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8 overflow-hidden">
         <Navbar/>
+        <h1 className='underline font-extrabold mt-2 text-2xl'>Projects</h1>
        <MainSection />
 
        <Footer/>
       
       </div>
    </div>
+   {children}
+   </Theme>
   );
 }
 

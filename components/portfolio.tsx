@@ -3,8 +3,6 @@
 import {Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useSelector } from "react-redux";
-
 import { Projects } from "./FeaturedProjects";
 import SkillsSection from "./skills";
 import Navbar from "./navbar";
@@ -13,19 +11,14 @@ import { FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import Footer from "./Footer";
+import Theme from "./theme";
 
 const Portfolio = () => {
-  const theme = useSelector(
-    (state: { theme: { darkMode: boolean } }) => state.theme.darkMode
-  );
+  
 
   return (
-    <div
-      className={` ${
-        theme ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
-    >
-       
+    
+      <Theme>
       <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8">
       <Navbar />
       
@@ -121,7 +114,8 @@ const Portfolio = () => {
         {/* Footer */}
         <Footer/>
       </div>
-    </div>
+      </Theme> 
+    
   );
 };
 

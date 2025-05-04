@@ -18,7 +18,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   );
 
   return (
-    <div className="prose dark:prose-invert max-w-none">
+    <div className="">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
