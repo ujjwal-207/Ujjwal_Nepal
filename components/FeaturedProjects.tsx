@@ -15,8 +15,10 @@ export const Projects = () => {
   return (
     <section className="py-16 px-4 ">
       
-        <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <h1 className="text-4xl font-extrabold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
+            Featured Projects
+          </h1>
+        <div className="grid md:grid-cols-2 gap-8 mt-9">
           {featuredprojects.map((project) => (
             <Card key={project.title} className="overflow-hidden group ">
               <video

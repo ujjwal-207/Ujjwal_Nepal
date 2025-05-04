@@ -19,7 +19,8 @@ const Portfolio = () => {
   return (
     
       <Theme>
-      <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8">
+      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200 text-gray-900 dark:text-white font-sans">
+      <div className="max-w-screen-md mx-auto px-4 md:px-6 lg:px-1">
       <Navbar />
       
         {/* Hero Section */}
@@ -60,8 +61,10 @@ const Portfolio = () => {
 
         {/* About Section */}
         <section className="py-16">
-          <h2 className="text-3xl font-bold mb-8">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+        <h1 className="text-4xl font-extrabold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
+            About Me
+          </h1>
+          {/* <div className="grid md:grid-cols-2 gap-8"> */}
             <div className="space-y-4">
               <p className="text-lg">
                 I&apos;m a passionate Full Stack Developer with expertise in
@@ -74,7 +77,7 @@ const Portfolio = () => {
                 technologies, I bring a comprehensive approach to building
                 scalable applications.
               </p>
-            </div>
+            {/* </div> */}
           </div>
         </section>
 
@@ -89,10 +92,12 @@ const Portfolio = () => {
             opportunities to be part of your visions.
           </p>
           <div className="flex justify-center gap-4">
+          <a href="mailto:ujjwalnepal715@gmail.com" className="text-blue-500 underline">
             <Button className="gap-2">
               <Mail className="h-4 w-4" />
               Email Me
             </Button>
+            </a>
             <Link href={"https://www.linkedin.com/in/ujjwal-nepal-33980a245/"}>
             <Button variant="outline" className="gap-2 bg-[#0077B5]">
               <CiLinkedin className="h-4 w-4" />
@@ -113,6 +118,7 @@ const Portfolio = () => {
 
         {/* Footer */}
         <Footer/>
+      </div>
       </div>
       </Theme> 
     
