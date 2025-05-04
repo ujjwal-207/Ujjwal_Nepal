@@ -1,10 +1,9 @@
 # Ujjwal Nepal - Personal Portfolio
 
 <div align="center">
-  <img src="public/assets/logo.png" alt="Ujjwal Nepal Logo" width="150" />
+  <img src="public/data/SiteSshot.png" alt="Ujjwal Nepal " width="150" />
 </div>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-id/deploy-status)](https://app.netlify.com/sites/ujjwal-nepal/deploys)
 [![NextJS](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -12,11 +11,11 @@ A modern, responsive portfolio website built with Next.js, featuring interactive
 
 ## ✨ Live Demo
 
-Check out the live site: [ujjwalnepal.com](https://ujjwalnepal.com)
+Check out the live site: [ujjwalnepal.com](https://ujjwal-nepal.vercel.app/)
 
 ## 🛠️ Technologies Used
 
-- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Framework**: [Next.js 15](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components**:
   - Custom rotating card components
@@ -58,21 +57,16 @@ Check out the live site: [ujjwalnepal.com](https://ujjwalnepal.com)
    yarn install
    ```
 
-3. Environment setup:
-   Create a `.env.local` file in the root directory with the following variables:
-   ```
-   NEXT_PUBLIC_HASHNODE_API_URL=your_hashnode_endpoint
-   NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
-   ```
 
-4. Run the development server:
+
+3. Run the development server:
    ```bash
    npm run dev
    # or
    yarn dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 📝 Project Structure
 
@@ -102,9 +96,8 @@ The portfolio fetches blog posts from Hashnode using their GraphQL API. To custo
 
 ### Formspree Setup
 
-1. Create a form on [Formspree](https://formspree.io/)
-2. Add your form endpoint to `.env.local`
-3. The contact form component will handle the rest
+1. Create a form on [Formspree](https://formspree.io/) 
+2. The contact form component will handle the rest
 
 ## 🎨 Customization
 
@@ -135,7 +128,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Contact
 
-Ujjwal Nepal - [ujjwalnepal@example.com](mailto:ujjwalnepal@example.com)
+Ujjwal Nepal - [ujjwalnepal@example.com](mailto:ujjwalnepal715@gmail.com)
 
 Project Link: [https://github.com/ujjwal-207/Ujjwal_Nepal](https://github.com/ujjwal-207/Ujjwal_Nepal)
 
