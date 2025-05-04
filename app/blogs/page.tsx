@@ -7,12 +7,20 @@ import { getPosts } from '@/lib/query';
 
 import React from 'react'
 
-export default async function  Blog ({searchParams,children } : {
-  searchParams : Promise<{page?:string}> ; children : React.ReactNode
-}){
+interface PageProps  {
+  params: { [key: string]: string | string[] };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+// interface extends PageProps {
+//   children: ReactNode;
+// }
+
+export default async function  Blog ({params,searchParams } : PageProps
+){
   
-  const {page} = await searchParams;
-  const currentpage = parseInt (page || "1",10);
+  // const {page} = await searchParams;
+  const currentpage = parseInt (searchParams.page?.toString() || "1", 10);
   const postconnection = await getPosts(currentpage);
   const edges = postconnection?.edges ?? [];
   const hasNextPage = postconnection?.pageInfo?.hasNextPage ?? false;
@@ -34,7 +42,7 @@ export default async function  Blog ({searchParams,children } : {
       
     </div>
     
-    {children}
+    
     </div>
     <Footer/>
     </Theme>
