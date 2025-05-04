@@ -22,9 +22,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const DEFAULT_META = {
-    title: "Blog | Samir Tiwari",
+    title: "Blogs | Ujjwal Nepal",
     description:
-      "Explore blogs by Samir Tiwari, where you can find insightful articles, tutorials, and thoughts on various topics.",
+      "Explore blogs by Ujjwal Nepal, where you can find something great",
   };
 
   try {
@@ -32,7 +32,7 @@ export async function generateMetadata({
 
     if (!post) return { title: "Post not found" };
 
-    const title = post.title ?? "Blog | Samir Tiwari";
+    const title = post.title ?? "Blogs | Ujjwal Nepal";
     const description = (post.seo?.description || post.brief) ?? "";
     const image = post.coverImage?.url;
     const url = `${BASE_URL}/blogs/${slug}`;
@@ -59,7 +59,7 @@ export async function generateMetadata({
       ...DEFAULT_META,
       openGraph: {
         ...DEFAULT_META,
-        url: new URL(`${BASE_URL}/blog/${slug}`),
+        url: new URL(`${BASE_URL}/blogs/${slug}`),
       },
       twitter: {
         ...DEFAULT_META,

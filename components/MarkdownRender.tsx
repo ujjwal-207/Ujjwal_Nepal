@@ -89,6 +89,7 @@ const ImageComponent: Components["img"] = ({ ...props }) => {
   const alignment = props.alt?.match(/(center|left|right)/)?.[0] || "center";
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className={`rounded-lg max-w-full h-auto block my-4
         ${alignment === "center" ? "mx-auto" : ""}

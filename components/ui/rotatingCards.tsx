@@ -144,6 +144,7 @@ const RotatingCards = () => {
         document.head.removeChild(styleSheet);
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

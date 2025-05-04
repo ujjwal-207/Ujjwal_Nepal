@@ -4,7 +4,7 @@ import MainSection from "@/components/ProjectSection";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import Theme from "@/components/theme";
-export default function Projects({children} : {children: React.ReactNode}) {
+export default function Projects() {
   
  
   
@@ -23,7 +23,7 @@ export default function Projects({children} : {children: React.ReactNode}) {
       
       </div>
    </div>
-   {children}
+   
    </Theme>
   );
 }
