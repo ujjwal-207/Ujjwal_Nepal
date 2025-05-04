@@ -14,7 +14,14 @@ import Footer from "./Footer";
 import Theme from "./theme";
 
 const Portfolio = () => {
-  
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/data/Ujjwal_Nepal_Resume2.pdf';
+    link.download = 'Ujjwal-NepalCV.pdf'; // Optional: set a different download filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     
@@ -24,11 +31,11 @@ const Portfolio = () => {
       <Navbar />
       
         {/* Hero Section */}
-        <section className="pt-32">
+        <section className="pt-16">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">
-                Hi, I&apos;m Ujjwal Nepal
+                Hey, I&apos;m Ujjwal Nepal ✌️
                 <span className="block text-blue-600 dark:text-blue-400">
                   Full Stack Developer
                 </span>
@@ -37,11 +44,13 @@ const Portfolio = () => {
                 I build exceptional digital experiences with modern technologies
               </p>
               <div className="flex gap-4">
+                <Link href={"/contact"}>
                 <Button className="gap-2">
                   <Mail className="h-4 w-4" />
                   Contact Me
                 </Button>
-                <Button variant="outline" className="gap-2 text-gray-600 dark:text-gray-300">
+                </Link>
+                <Button variant="outline" className="gap-2 text-gray-600 dark:text-gray-300"onClick={handleDownload}>
                   <Download className="h-4 w-4 text-gray-600 dark:text-gray-300" />
                   Download CV
                 </Button>

@@ -104,7 +104,7 @@ const CardLink = styled(motion.div)<StyledCardProps>`
 
 const CardHeader = styled(motion.h2)<StyledCardProps>`
   margin: 0.5rem 0;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 700;
   color: ${(props) => (props.isCardOpened ? "#ffffff" : props.theme.primary)};
 `;
