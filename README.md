@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ujjwal Nepal - Personal Portfolio
 
-## Getting Started
+<div align="center">
+  <img src="public/assets/logo.png" alt="Ujjwal Nepal Logo" width="150" />
+</div>
 
-First, run the development server:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-id/deploy-status)](https://app.netlify.com/sites/ujjwal-nepal/deploys)
+[![NextJS](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A modern, responsive portfolio website built with Next.js, featuring interactive UI components, blog integration via Hashnode, and a contact form powered by Formspree.
+
+## ✨ Live Demo
+
+Check out the live site: [ujjwalnepal.com](https://ujjwalnepal.com)
+
+## 🛠️ Technologies Used
+
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**:
+  - Custom rotating card components
+  - Interactive animations
+  - Responsive design
+- **Blog Integration**: [Hashnode API](https://hashnode.com/)
+- **Form Backend**: [Formspree](https://formspree.io/)
+- **Deployment**: Vercel
+
+## 🌟 Features
+
+- **Interactive UI** - Engaging user experience with animated components
+- **Responsive Design** - Looks great on all devices from mobile to desktop
+- **Project Showcase** - Highlighting projects with rotating card displays
+- **Blog Section** - Integrated with Hashnode for seamless content management
+- **Contact Form** - Easy to use contact form with Formspree backend
+- **Dark/Light Mode Toggle** - Customizable viewing experience
+- **SEO Optimized** - Built with performance and search visibility in mind
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ujjwal-207/Ujjwal_Nepal.git
+   cd Ujjwal_Nepal
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Environment setup:
+   Create a `.env.local` file in the root directory with the following variables:
+   ```
+   NEXT_PUBLIC_HASHNODE_API_URL=your_hashnode_endpoint
+   NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 📝 Project Structure
+
+```
+Ujjwal_Nepal/
+├── components/        # Reusable UI components
+├── lib/               # Utility functions and API clients
+├── pages/             # Next.js pages
+│   ├── api/           # API routes
+│   ├── blog/          # Blog pages with Hashnode integration
+│   ├── projects/      # Project showcase pages
+│   └── contact/       # Contact page with Formspree
+├── public/            # Static assets
+│   └── assets/        # Images and other assets
+├── styles/            # Global styles
+└── utils/             # Helper functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Hashnode Blog Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The portfolio fetches blog posts from Hashnode using their GraphQL API. To customize:
 
-## Learn More
+1. Update the Hashnode username in `lib/hashnode.js`
+2. Modify the query to fetch the data you need
 
-To learn more about Next.js, take a look at the following resources:
+### Formspree Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a form on [Formspree](https://formspree.io/)
+2. Add your form endpoint to `.env.local`
+3. The contact form component will handle the rest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Customization
 
-## Deploy on Vercel
+- **Theme**: Edit the theme colors in `tailwind.config.js`
+- **Content**: Update personal information in `data/` directory
+- **Layout**: Modify components in the `components/` directory
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Responsive Design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The portfolio is designed to work flawlessly across all devices:
+- Mobile-first approach
+- Breakpoints for tablet and desktop
+- Optimized images and assets
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Contact
+
+Ujjwal Nepal - [ujjwalnepal@example.com](mailto:ujjwalnepal@example.com)
+
+Project Link: [https://github.com/ujjwal-207/Ujjwal_Nepal](https://github.com/ujjwal-207/Ujjwal_Nepal)
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by Ujjwal Nepal</p>
+</div>
