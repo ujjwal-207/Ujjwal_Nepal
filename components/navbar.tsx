@@ -33,10 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
 
   return (
     <nav className="sticky  top-0 w-full py-4 backdrop-blur-sm  z-50">
-      <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-8">  
+      <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-2">  
       <div className="flex justify-between items-center ">
         <Link href={"/"}>
-        <h1 className="text-xl font-bold text-black dark:text-white ">Ujjwal Nepal</h1></Link>
+        <h1 className="text-4xl font-extrabold text-black dark:text-white ">Ujjwal Nepal</h1></Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">

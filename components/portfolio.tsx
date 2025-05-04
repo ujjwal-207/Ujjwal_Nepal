@@ -60,7 +60,8 @@ const Portfolio = () => {
               <Image
                 src="/data/ujj.png"
                 alt="Ujjwal Nepal"
-                className="rounded-full w-48 h-72 mx-auto object-cover border-4 border-blue-500"
+                // className="hidden sm:block sm:w-32 sm:h-48 md:w-48 md:h-72 mx-auto object-cover rounded-full border-4 border-blue-500"
+                 className="w-0 h-0 sm:w-32 sm:h-48 md:w-48 md:h-72 sm:block hidden mx-auto object-cover rounded-full border-4 border-blue-500"
                 width={70}
                 height={70}
               />
@@ -70,7 +71,7 @@ const Portfolio = () => {
 
         {/* About Section */}
         <section className="py-16">
-        <h1 className="text-4xl font-extrabold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
+        <h1 className="text-4xl font-bold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
             About Me
           </h1>
           {/* <div className="grid md:grid-cols-2 gap-8"> */}
