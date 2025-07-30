@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import { IoBookOutline } from "react-icons/io5";
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs();
