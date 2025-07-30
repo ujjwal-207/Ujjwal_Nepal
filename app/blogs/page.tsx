@@ -4,9 +4,9 @@ import Navbar from "@/components/navbar";
 import Pagination from "@/components/PageNavigation";
 import Theme from "@/components/theme";
 import { getPosts } from "@/lib/query";
-
 import React from "react";
-// export const runtime = "edge";
+
+export const runtime = "edge"; // Required by Cloudflare Pages
 
 export default async function Blog({
   searchParams,
@@ -14,8 +14,8 @@ export default async function Blog({
   searchParams: Promise<{ page?: string }>;
 }) {
   const { page } = await searchParams;
-  const currentpage = parseInt(page || "1", 10);
-  const postconnection = await getPosts(currentpage);
+  const currentPage = parseInt(page || "1", 10);
+  const postconnection = await getPosts(currentPage);
   const edges = postconnection?.edges ?? [];
   const hasNextPage = postconnection?.pageInfo?.hasNextPage ?? false;
 
@@ -31,7 +31,8 @@ export default async function Blog({
           {edges.map(({ node }) => (
             <BlogCard key={node.id} blog={{ node }} />
           ))}
-          <Pagination hasNextPage={hasNextPage} currentPage={currentpage} />
+
+          <Pagination hasNextPage={hasNextPage} currentPage={currentPage} />
         </div>
       </div>
       <Footer />
