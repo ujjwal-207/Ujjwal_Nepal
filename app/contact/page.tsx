@@ -27,7 +27,7 @@ export default function Contact() {
 
           {/* Contact Form using Formspree */}
           <form
-            action="https://formspree.io/f/xwpolzzv" // <-- Replace this with your actual Formspree form ID
+            action="https://formspree.io/f/xwpolzzv" // <-- Replace this with your actual Formspree form ID for using formspree
             method="POST"
             className="space-y-4"
           >
