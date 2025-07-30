@@ -1,7 +1,9 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/navbar'
-import Theme from '@/components/theme'
-import React from 'react'
+import Footer from "@/components/Footer";
+import Navbar from "@/components/navbar";
+import Theme from "@/components/theme";
+import React from "react";
+
+export const runtime = "edge";
 
 export default function Contact() {
   return (
@@ -17,12 +19,21 @@ export default function Contact() {
           </h3>
 
           <p className="mb-6 text-lg">
-            I’m open to full-time work, freelance and collaborations.Whether you have a project in mind, want to collaborate, or just want to say hi—I’d love to hear from you. Let&apos;s create something amazing together!
+            I’m open to full-time work, freelance and collaborations.Whether you
+            have a project in mind, want to collaborate, or just want to say
+            hi—I’d love to hear from you. Let&apos;s create something amazing
+            together!
           </p>
 
           {/* Mailto fallback */}
           <p className="mb-6 text-md">
-            You can also reach me directly at: <a href="mailto:ujjwalnepal715@gmail.com" className="text-blue-500 underline">ujjwalnepal715@gmail.com</a>
+            You can also reach me directly at:{" "}
+            <a
+              href="mailto:ujjwalnepal715@gmail.com"
+              className="text-blue-500 underline"
+            >
+              ujjwalnepal715@gmail.com
+            </a>
           </p>
 
           {/* Contact Form using Formspree */}
@@ -67,7 +78,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </Theme>
-  )
+  );
 }
