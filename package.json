@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "pages:build": "npx @cloudflare/next-on-pages"
+    "pages:dev": "npx @cloudflare/next-on-pages --dev"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
