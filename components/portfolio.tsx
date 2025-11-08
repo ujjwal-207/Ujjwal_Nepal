@@ -17,7 +17,7 @@ const Portfolio = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = '/data/Ujjwal_Nepal_Resume2.pdf';
-    link.download = 'Ujjwal-NepalCV.pdf'; // Optional: set a different download filename
+    link.download = 'Ujjwal-NepalCV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -60,7 +60,6 @@ const Portfolio = () => {
               <Image
                 src="/data/ujj.png"
                 alt="Ujjwal Nepal"
-                // className="hidden sm:block sm:w-32 sm:h-48 md:w-48 md:h-72 mx-auto object-cover rounded-full border-4 border-blue-500"
                  className="w-0 h-0 sm:w-32 sm:h-48 md:w-48 md:h-72 sm:block hidden mx-auto object-cover rounded-full border-4 border-blue-500"
                 width={70}
                 height={70}
@@ -69,13 +68,10 @@ const Portfolio = () => {
 
           </div>
         </section>
-
-        {/* About Section */}
         <section className="py-16">
         <h1 className="text-4xl font-bold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
             About Me
           </h1>
-          {/* <div className="grid md:grid-cols-2 gap-8"> */}
             <div className="space-y-4">
               <p className="text-lg">
                 I&apos;m a passionate Full Stack Developer with expertise in
@@ -88,14 +84,11 @@ const Portfolio = () => {
                 technologies, I bring a comprehensive approach to building
                 scalable applications.
               </p>
-            {/* </div> */}
           </div>
         </section>
 
         <SkillsSection />
         <Projects />
-
-        {/* Contact Section */}
         <section className="py-16 text-center">
           <h2 className="text-3xl font-bold mb-8">Let&apos;s Work Together</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
