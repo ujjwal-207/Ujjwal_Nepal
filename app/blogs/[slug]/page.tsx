@@ -3,17 +3,17 @@ import MarkdownRenderer from "@/components/MarkdownRender";
 import Navbar from "@/components/navbar";
 import Theme from "@/components/theme";
 import { BASE_URL } from "@/lib/constant";
-import { getPostSlugs, getSinglePost } from "@/lib/query";
+import {  getSinglePost } from "@/lib/query";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import { IoBookOutline } from "react-icons/io5";
-// export const runtime = "edge";
+ export const runtime = "edge";
 
-export async function generateStaticParams() {
-  const slugs = await getPostSlugs();
-  return slugs.map((slugs: string) => ({ slugs }));
-}
+// export async function generateStaticParams() {
+//   const slugs = await getPostSlugs();
+//   return slugs.map((slugs: string) => ({ slugs }));
+// }
 export const dynamicParams = true;
 
 export async function generateMetadata({

@@ -128,7 +128,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Contact
 
-Ujjwal Nepal - [ujjwalnepa715@gmail.com](mailto:ujjwalnepal715@gmail.com)
+Ujjwal Nepal - [ujjwalnepal715@gmail.com](mailto:ujjwalnepal715@gmail.com)
 
 Project Link: [https://github.com/ujjwal-207/Ujjwal_Nepal](https://github.com/ujjwal-207/Ujjwal_Nepal)
 
