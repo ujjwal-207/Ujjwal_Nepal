@@ -27,8 +27,9 @@ const Portfolio = () => {
     
       <Theme>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200 text-gray-900 dark:text-white font-sans">
-      <div className="max-w-screen-md mx-auto px-4 md:px-6 lg:px-1">
-      <Navbar />
+        
+      <div className="max-w-screen-lg mx-auto px-4 md:px-7 lg:px-1">
+         <Navbar />
       
         {/* Hero Section */}
         <section className="pt-16">
