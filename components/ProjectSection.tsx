@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { ReactElement } from "react";
 import Card from "./ui/ExpandableCard";
-import { CardDescription } from "./ui/card";
 
 interface CardData {
   title: string;
