@@ -16,7 +16,7 @@ import Theme from "./theme";
 const Portfolio = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/data/Ujjwal_Nepal_Resume2.pdf';
+    link.href = '/data/UjjwalNepal.pdf';
     link.download = 'Ujjwal-NepalCV.pdf';
     document.body.appendChild(link);
     link.click();

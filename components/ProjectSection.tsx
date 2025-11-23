@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { ReactElement } from "react";
 import Card from "./ui/ExpandableCard";
+import { CardDescription } from "./ui/card";
 
 interface CardData {
   title: string;
@@ -45,6 +46,14 @@ export default function MainSection() {
         "data/Kapada.png",
         cardDescription:"Ecommerce-Site with Functionality like Cart, UserAuthentication, AdminPannel, ResponsiveDesign",
         github:"https://github.com/ujjwal-207/KAPADA"
+    },
+    {
+      title : "VBlog",
+      author : "Postgresql,Prisma,NextJs,Express",
+      imgSrc :
+        "data/VBlog.png",
+        cardDescription : "VBlog is a full-stack Blog Application. The project includes a Next.js (App Router) + TypeScript frontend and a Node.js + Express + Prisma + PostgreSQL backend.It features JWT authentication, protected routes, and complete CRUD operations for blog posts",
+          github : "https://github.com/ujjwal-207/VBlogApp",  
     }
   ].map((cardObj: CardData, index: number) => {
     return (
