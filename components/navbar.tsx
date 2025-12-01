@@ -39,7 +39,6 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
         <Link href={"/"}>
         <h1 className="text-4xl font-extrabold text-black dark:text-white ">Ujjwal Nepal</h1></Link>
         
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => {
             const isActive = pathname === item.path || 
@@ -83,7 +82,6 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
             )}
           </Button>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
@@ -99,7 +97,6 @@ const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}

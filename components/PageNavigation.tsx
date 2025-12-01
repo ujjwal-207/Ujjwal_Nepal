@@ -14,29 +14,27 @@ export default function Pagination({
   const nextPage = hasNextPage ? currentPage + 1 : null;
 
   return (
-    <nav className="flex justify-between  py-8 text-sm font-medium">
+    <nav className="flex justify-between py-8 text-sm font-medium">
       {prevPage ? (
         <Link
-          href={`/blog?page=${prevPage}`}
-          className=" underline underline-offset-4 hover:text-zinc-500"
+          href={`/blogs?page=${prevPage}`}
+          className="underline underline-offset-4 hover:text-zinc-500"
         >
           Previous
         </Link>
       ) : (
-        <span className=" text-zinc-400">Previous</span>
+        <span className="text-zinc-400"></span>
       )}
-
       <span>Page {currentPage}</span>
-
       {nextPage ? (
         <Link
-          href={`/blog?page=${nextPage}`}
-          className=" underline underline-offset-4 hover:text-zinc-500"
+          href={`/blogs?page=${nextPage}`}
+          className="underline underline-offset-4 hover:text-zinc-500"
         >
           Next
         </Link>
       ) : (
-        <span className="text-gray-400">Next</span>
+        <span className="text-gray-400"></span>
       )}
     </nav>
   );

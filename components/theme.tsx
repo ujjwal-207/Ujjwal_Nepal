@@ -2,10 +2,8 @@
 import { useSelector } from "react-redux";
 import { createContext, useContext } from "react";
 
-// Create a context for theme
 const ThemeContext = createContext<boolean>(false);
 
-// Client component that provides theme value
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSelector(
     (state: { theme: { darkMode: boolean } }) => state.theme.darkMode
