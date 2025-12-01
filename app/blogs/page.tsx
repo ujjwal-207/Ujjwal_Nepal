@@ -6,7 +6,7 @@ import Theme from "@/components/theme";
 import { getPosts } from "@/lib/query";
 import React from "react";
 
-export const runtime = "edge"; // Required by Cloudflare Pages
+export const runtime = "edge";
 
 export default async function Blog({
   searchParams,
