@@ -11,7 +11,7 @@ A modern, responsive portfolio website built with Next.js, featuring interactive
 
 ## ✨ Live Demo
 
-Check out the live site: [ujjwalnepal.com](https://ujjwal-nepal.vercel.app/)
+Check out the live site: [ujjwal-nepal.com.np](https://ujjwal-nepal.com.np/)
 
 ## 🛠️ Technologies Used
 
