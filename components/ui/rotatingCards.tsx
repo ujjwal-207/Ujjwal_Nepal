@@ -4,117 +4,76 @@ interface CardContent {
   title: string;
   description: string;
   icon: string;
-  colorCard: string;
-  black_icon: string;
+  tint: string;
 }
-
-interface CardProps {
-  content: CardContent;
-  index: number;
-  quantity: number;
-  translateZ: number;
-}
-
-const Card: React.FC<CardProps> = ({
-  content,
-  index,
-  quantity,
-  translateZ,
-}) => {
-  return (
-    <div
-      className="absolute inset-0 rounded-xl border-2 overflow-hidden  p-4 flex flex-col items-center justify-center"
-      style={{
-        borderColor: `rgba(${content.colorCard})`,
-        transform: `rotateY(${
-          (360 / quantity) * index
-        }deg) translateZ(${translateZ}px)`,
-      }}
-    >
-      <div className="text-4xl mb-2">{content.icon}</div>
-      <h3 className="text-lg font-bold mb-2">{content.title}</h3>
-      <p className="text-sm text-center">{content.description}</p>
-    </div>
-  );
-};
 
 const RotatingCards = () => {
-  const w = 100;
-  const h = 250;
+  const w = 110;
+  const h = 240;
   const translateZ = w + h;
-  const rotateX = -15;
-  const perspective = 1000;
+  const rotateX = -12;
+  const perspective = 1200;
 
   const cardContents: CardContent[] = [
     {
       title: "React",
-      description: "Building modern UI with React and its ecosystem",
+      description: "Stage-ready interfaces and interactive UI systems",
       icon: "⚛️",
-      colorCard: "142, 249, 252",
-      black_icon: "⚛",
+      tint: "rgba(196,181,253,0.22)",
     },
     {
       title: "Node.js",
-      description: "Server-side JavaScript development",
+      description: "Backend services, APIs, auth, and realtime features",
       icon: "🟢",
-      colorCard: "142, 252, 204",
-      black_icon: "⚫",
+      tint: "rgba(124,88,212,0.24)",
     },
     {
       title: "TypeScript",
-      description: "Type-safe JavaScript development",
+      description: "Type-safe engineering with fewer runtime surprises",
       icon: "📘",
-      colorCard: "142, 252, 157",
-      black_icon: "⚛",
+      tint: "rgba(232,201,122,0.2)",
     },
     {
       title: "MongoDB",
-      description: "NoSQL database management",
+      description: "Flexible data modeling for collaborative products",
       icon: "🍃",
-      colorCard: "215, 252, 142",
-      black_icon: "⚛",
+      tint: "rgba(176,106,179,0.22)",
     },
     {
       title: "Next.js",
-      description: "Full-stack React framework",
+      description: "Full-stack web apps with strong performance defaults",
       icon: "▲",
-      colorCard: "252, 252, 142",
-      black_icon: "⚛",
+      tint: "rgba(201,150,63,0.22)",
     },
     {
       title: "Docker",
-      description: "Containerization and deployment",
+      description: "Portable deployments and clean local parity",
       icon: "🐳",
-      colorCard: "252, 208, 142",
-      black_icon: "⚛",
+      tint: "rgba(196,181,253,0.2)",
     },
     {
       title: "Python",
-      description: "Cloud infrastructure and services",
+      description: "Utility tooling, scripting, and backend workflows",
       icon: "🐍",
-      colorCard: "252, 142, 142",
-      black_icon: "⚛",
+      tint: "rgba(124,88,212,0.22)",
     },
     {
       title: "TailwindCSS",
-      description: "Utility-first CSS framework",
+      description: "Fast visual iteration with precise UI composition",
       icon: "🎨",
-      colorCard: "252, 142, 239",
-      black_icon: "⚛",
+      tint: "rgba(176,106,179,0.22)",
     },
     {
       title: "Git",
-      description: "Version control and collaboration",
+      description: "Version control and tight collaboration discipline",
       icon: "📦",
-      colorCard: "204, 142, 252",
-      black_icon: "⚛",
+      tint: "rgba(232,201,122,0.2)",
     },
     {
       title: "Testing",
-      description: "Jest, React Testing Library",
+      description: "Confidence through practical validation layers",
       icon: "🧪",
-      colorCard: "142, 202, 252",
-      black_icon: "⚛",
+      tint: "rgba(196,181,253,0.22)",
     },
   ];
 
@@ -148,23 +107,47 @@ const RotatingCards = () => {
   }, []);
 
   return (
-    <div className="w-full h-full relative text-center flex items-center justify-center overflow-hidden">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden text-center">
+      <div className="absolute inset-x-10 top-16 h-32 rounded-full bg-[radial-gradient(circle,rgba(232,201,122,0.15),transparent_70%)] blur-3xl" />
       <div
         ref={innerRef}
-        className="absolute w-[200px] h-[250px] top-1/4 left-[calc(50%-100px-2.5px)] z-[2] preserve-3d"
+        className="absolute left-[calc(50%-110px)] top-20 z-[2] h-[240px] w-[220px] preserve-3d"
         style={{
           transformStyle: "preserve-3d",
           transform: `perspective(${perspective}px)`,
         }}
       >
         {cardContents.map((content, index) => (
-          <Card
+          <div
             key={index}
-            content={content}
-            index={index}
-            quantity={quantity}
-            translateZ={translateZ}
-          />
+            className="absolute inset-0 flex flex-col items-center justify-center rounded-[28px] border p-5 text-center shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-sm"
+            style={{
+              borderColor: "rgba(196,181,253,0.18)",
+              background:
+                "linear-gradient(180deg, rgba(26,20,52,0.92), rgba(15,12,29,0.95))",
+              boxShadow: `0 22px 45px rgba(0,0,0,0.35), 0 0 0 1px ${content.tint} inset`,
+              transform: `rotateY(${(360 / quantity) * index}deg) translateZ(${translateZ}px)`,
+            }}
+          >
+            <div
+              className="mb-4 flex h-14 w-14 items-center justify-center rounded-full text-3xl"
+              style={{ background: content.tint }}
+            >
+              {content.icon}
+            </div>
+            <h3
+              className="text-2xl uppercase tracking-[0.16em] text-[#fff6d5]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {content.title}
+            </h3>
+            <p
+              className="mt-3 text-sm leading-6 text-[#b7a6d3]"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {content.description}
+            </p>
+          </div>
         ))}
       </div>
     </div>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 export interface PaginationProps {
   currentPage: number;
@@ -14,27 +13,27 @@ export default function Pagination({
   const nextPage = hasNextPage ? currentPage + 1 : null;
 
   return (
-    <nav className="flex justify-between py-8 text-sm font-medium">
+    <nav className="mt-10 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.18em]">
       {prevPage ? (
-        <Link
-          href={`/blogs?page=${prevPage}`}
-          className="underline underline-offset-4 hover:text-zinc-500"
-        >
+        <Link href={`/blogs?page=${prevPage}`} className="terminal-button secondary">
           Previous
         </Link>
       ) : (
-        <span className="text-zinc-400"></span>
+        <span className="terminal-button secondary pointer-events-none opacity-40">
+          Previous
+        </span>
       )}
-      <span>Page {currentPage}</span>
+
+      <span className="text-[var(--ink-dim)]">Page {currentPage}</span>
+
       {nextPage ? (
-        <Link
-          href={`/blogs?page=${nextPage}`}
-          className="underline underline-offset-4 hover:text-zinc-500"
-        >
+        <Link href={`/blogs?page=${nextPage}`} className="terminal-button secondary">
           Next
         </Link>
       ) : (
-        <span className="text-gray-400"></span>
+        <span className="terminal-button secondary pointer-events-none opacity-40">
+          Next
+        </span>
       )}
     </nav>
   );

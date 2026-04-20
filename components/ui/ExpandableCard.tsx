@@ -1,16 +1,17 @@
-"use client"
-import styled, { css } from "styled-components";
+"use client";
+
 import { motion } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 interface CardProps {
   title: string;
   author: string;
   imgSrc: string;
-  cardDescription:string;
-  github:string;
+  cardDescription: string;
+  github: string;
 }
 
 interface CardDimensions {
@@ -18,125 +19,133 @@ interface CardDimensions {
   height: number;
 }
 
-export default function Card({ title, author, imgSrc,cardDescription,github }: CardProps) {
+export default function Card({
+  title,
+  author,
+  imgSrc,
+  cardDescription,
+  github,
+}: CardProps) {
   const [isCardOpened, setIsCardOpened] = useState(false);
-  const [cardDimensions, setCardDimensions] = useState<CardDimensions>({ width: 0, height: 0 });
-  const card = useRef<HTMLDivElement>(null);
-  
+  const [cardDimensions, setCardDimensions] = useState<CardDimensions>({
+    width: 0,
+    height: 0,
+  });
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const tags = author.split("/").map((item) => item.trim());
+
   return (
     <Fragment>
-      <CardLink
-        ref={card}
-        isCardOpened={isCardOpened}
+      <motion.article
+        ref={cardRef}
         layout
         onClick={() => {
           setIsCardOpened(true);
-          if (!isCardOpened && card.current) {
+          if (cardRef.current) {
             setCardDimensions({
-              width: card.current.clientWidth,
-              height: card.current.clientHeight
+              width: cardRef.current.clientWidth,
+              height: cardRef.current.clientHeight,
             });
           }
         }}
+        className={`velvet-panel cursor-pointer overflow-hidden rounded-[32px] ${
+          isCardOpened
+            ? "fixed inset-0 z-20 m-auto h-[min(82vh,760px)] w-[min(720px,94vw)] overflow-y-auto"
+            : "transition duration-300 hover:-translate-y-1 hover:border-[rgba(232,201,122,0.35)]"
+        }`}
       >
-        <CardImage src={imgSrc} />
-        <CardHeader isCardOpened={isCardOpened} layout="position">
-          {title} 
-        </CardHeader>
-        <CardSubtitle isCardOpened={isCardOpened} layout="position">
-          {author} <br/>
-          <Link href={github} className="inline-flex items-center"><span><FaGithub/></span><span>Ujjwal Nepal</span></Link>
-        </CardSubtitle>
+        <div className="relative aspect-[4/3] bg-[rgba(8,6,18,0.8)]">
+          {!imageLoaded && (
+            <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-[rgba(40,30,76,0.75)] via-[rgba(91,68,162,0.55)] to-[rgba(40,30,76,0.75)]" />
+          )}
+          <Image
+            src={imgSrc}
+            alt={`${title} project screenshot`}
+            className={`h-full w-full object-cover transition duration-300 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            width={900}
+            height={675}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            quality={90}
+            onLoadingComplete={() => setImageLoaded(true)}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[rgba(12,10,24,0.92)] to-transparent" />
+        </div>
 
-        {isCardOpened && (
-          <CardDescription initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <div className="p-6 md:p-7">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2
+                className="text-3xl uppercase tracking-[0.12em] text-[#fff6d5]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {title}
+              </h2>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="tag-pill"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <Link
+              href={github}
+              target="_blank"
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex items-center gap-2 rounded-full border border-[rgba(196,181,253,0.2)] px-4 py-2 text-sm uppercase tracking-[0.14em] text-[#ede0ff]"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              <FaGithub className="h-4 w-4" />
+              GitHub
+            </Link>
+          </div>
+
+          <motion.p
+            layout="position"
+            className={`mt-5 leading-7 text-[#b7a6d3] ${
+              isCardOpened ? "text-lg" : "line-clamp-3 text-base"
+            }`}
+            style={{ fontFamily: "var(--font-body)" }}
+          >
             {cardDescription}
-            
-          </CardDescription>
-          
-        )}
-      </CardLink>
+          </motion.p>
+
+          <div
+            className="mt-6 text-xs uppercase tracking-[0.22em] text-[#7a6899]"
+            style={{ fontFamily: "var(--font-terminal)" }}
+          >
+            {isCardOpened ? "click outside to close" : "click to expand"}
+          </div>
+        </div>
+      </motion.article>
+
       {isCardOpened && (
         <Fragment>
           <div
             style={{
               width: cardDimensions.width,
-              height: cardDimensions.height
+              height: cardDimensions.height,
             }}
-          ></div>
-          <CardBackground
+          />
+          <motion.button
+            type="button"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             onClick={() => setIsCardOpened(false)}
+            className="fixed inset-0 z-10 bg-[rgba(6,4,15,0.8)] backdrop-blur-[6px]"
+            aria-label="Close project details"
           />
         </Fragment>
       )}
     </Fragment>
   );
 }
-
-interface StyledCardProps {
-  isCardOpened?: boolean;
-}
-
-const CardLink = styled(motion.div)<StyledCardProps>`
-  height: 100%;
-  width: 100%;
-  ${(props) =>
-    props.isCardOpened &&
-    css`
-      width: min(40rem, 95%);
-      height: calc(100% - 10rem);
-      overflow-y: auto;
-      overflow-x: hidden;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      z-index: 10;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-    `}
-`;
-
-const CardHeader = styled(motion.h2)<StyledCardProps>`
-  margin: 0.5rem 0;
-  font-size: 2em;
-  font-weight: 700;
-  color: ${(props) => (props.isCardOpened ? "#ffffff" : props.theme.primary)};
-`;
-
-const CardSubtitle = styled(motion.p)<StyledCardProps>`
-  font-weight: 700;
-  font-size: 1em;
-  margin: 0 0 1rem;
-  color: ${(props) => (props.isCardOpened ? "#afafaf" : props.theme.subtitle)};
-`;
-
-const CardDescription = styled(motion.p)`
-  font-weight: 100;
-  font-size: 1.5em;
-  color: #ffffff;
-`;
-
-const CardImage = styled(motion.img)`
-  width: 100%;
-  height: auto;
-`;
-
-const CardBackground = styled(motion.div)`
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 9;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(10, 10, 10, 0.7);
-`;
-
-

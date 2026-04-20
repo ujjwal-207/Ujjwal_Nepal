@@ -2,9 +2,7 @@ import { BlogCard } from "@/components/Blogcard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
 import Pagination from "@/components/PageNavigation";
-import Theme from "@/components/theme";
 import { getPosts } from "@/lib/query";
-import React from "react";
 
 export const runtime = "edge";
 
@@ -20,22 +18,69 @@ export default async function Blog({
   const hasNextPage = postconnection?.pageInfo?.hasNextPage ?? false;
 
   return (
-    <Theme>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200 text-gray-900 dark:text-white font-sans">
-        <div className="max-w-screen-lg mx-auto px-4 md:px-6 lg:px-1">
-            <Navbar />
-          <h1 className="text-4xl font-bold mb-4 underline underline-offset-4 decoration-blue-500 mt-9">
-            Blogs
-          </h1>
+    <div className="terminal-shell min-h-screen">
+      <Navbar />
+      <main className="mx-auto max-w-7xl px-4 pb-6">
+        <div className="terminal-frame overflow-hidden">
+          <div className="shell-titlebar">
+            <div className="tb-dots">
+              <i />
+              <i />
+              <i />
+            </div>
+            <div className="tb-path">
+              <span className="cyan">ujjwal</span>@<span className="mag">fedora</span>:
+              <span className="text-[var(--ink)]">~/portfolio/blogs</span>
+            </div>
+            <div className="tb-meta">
+              <span>
+                <span className="tb-dot" />
+                page {currentPage}
+              </span>
+            </div>
+          </div>
 
-          {edges.map(({ node }) => (
-            <BlogCard key={node.id} blog={{ node }} />
-          ))}
+          <section className="terminal-pane m-4 lg:m-6">
+            <div className="pane-head">
+              <div className="left">
+                <span className="pane-tag cyan">blogs</span>
+                <span>published posts</span>
+              </div>
+              <div className="right">
+                <span>{edges.length} entries</span>
+              </div>
+            </div>
 
-          <Pagination hasNextPage={hasNextPage} currentPage={currentPage} />
+            <div className="p-6 lg:p-8">
+              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="terminal-kicker">writing archive</p>
+                  <h1 className="terminal-title mt-3 text-4xl md:text-6xl">
+                    Notes On Shipping <em>Products</em>
+                  </h1>
+                  <p className="terminal-copy mt-5 max-w-2xl text-sm md:text-base">
+                    Project breakdowns, lessons from building, and technical
+                    decisions that mattered after the code left local dev.
+                  </p>
+                </div>
+                <div className="terminal-stat min-w-[150px]">
+                  <span className="label">current page</span>
+                  <span className="value">{currentPage}</span>
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-6">
+                {edges.map(({ node }) => (
+                  <BlogCard key={node.id} blog={{ node }} />
+                ))}
+              </div>
+
+              <Pagination hasNextPage={hasNextPage} currentPage={currentPage} />
+            </div>
+          </section>
         </div>
-      </div>
+      </main>
       <Footer />
-    </Theme>
+    </div>
   );
 }

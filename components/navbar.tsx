@@ -1,143 +1,143 @@
 "use client";
-import React, { useState } from "react";
+
 import Link from "next/link";
-import { Button } from "./ui/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "@/app/Store/features/ThemeSlice";
-import { motion } from "framer-motion";
+import { Command, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 interface NavbarProps {
   onItemClick?: () => void;
+  onOpenSearch?: () => void;
 }
 
 const navItems = [
-  { label: 'Home', path: '/' },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Blog', path: '/blogs' },
-  { label: 'Contact', path: '/contact' },
-  {label : 'ByeMeMomo' ,path :'https://buymemomo.com/ujjwalnepal'}
+  { label: "Home", path: "/" },
+  { label: "Projects", path: "/projects" },
+  { label: "Skills", path: "/#skills" },
+  { label: "Blogs", path: "/blogs" },
+  { label: "Contact", path: "/contact" },
+  { label: "Treat Me To Momo ☕", path: "https://buymemomo.com/ujjwalnepal" },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({ onItemClick }) => {
+const Navbar = ({ onItemClick, onOpenSearch }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const theme = useSelector(
-    (state: { theme: { darkMode: boolean } }) => state.theme.darkMode
-  );
   const pathname = usePathname();
-  const dispatch = useDispatch();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   return (
-    <nav className="sticky top-0 w-full py-4 backdrop-blur-sm  z-50">
-      <div className="max-w-screen-lg mx-auto">  
-      <div className="flex justify-between items-center ">
-        <Link href={"/"}>
-        <h1 className="text-4xl font-extrabold text-black dark:text-white ">Ujjwal Nepal</h1></Link>
-        
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => {
-            const isActive = pathname === item.path || 
-                          (item.path !== '/' && pathname.startsWith(item.path));
-            
-            return (
-              <Link href={item.path} key={item.path}>
-                <span
-                  className={`relative text-base font-medium transition-colors duration-300 ${
-                    isActive
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 hover:text-blue-300 dark:text-gray-300 dark:hover:text-blue-300'
-                  }`}
+    <nav className="sticky top-0 z-50 px-4 py-4 backdrop-blur-md">
+      <div className="terminal-frame mx-auto max-w-7xl rounded-full px-5 py-3">
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/" className="shrink-0">
+            <span
+              className="text-sm tracking-[0.08em] text-[var(--yellow)] sm:text-base md:text-xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              ujjwal-nepal.com.np
+            </span>
+          </Link>
+
+          <div className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => {
+              const isActive =
+                item.path === "/"
+                  ? pathname === "/"
+                  : item.path.startsWith("http")
+                    ? false
+                    : item.path.startsWith("/#")
+                      ? pathname === "/"
+                      : pathname.startsWith(item.path);
+
+              return (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  prefetch={!item.path.startsWith("http")}
+                  rel={item.path.startsWith("http") ? "noreferrer" : undefined}
+                  target={item.path.startsWith("http") ? "_blank" : undefined}
                   onClick={onItemClick}
+                  className={`text-xs uppercase tracking-[0.22em] transition-colors ${
+                    isActive ? "text-[var(--ink)]" : "text-[var(--ink-dim)] hover:text-[var(--cyan)]"
+                  }`}
                 >
                   {item.label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-[-5px] left-0 right-0 h-[2px] bg-primary-600 dark:bg-primary-400"
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                    />
-                  )}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {onOpenSearch && (
+              <button
+                type="button"
+                onClick={onOpenSearch}
+                className="hidden items-center gap-2 rounded-full border border-[rgba(122,223,245,0.16)] bg-[rgba(20,16,32,0.86)] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)] md:inline-flex"
+              >
+                <Command className="h-4 w-4 text-[var(--cyan)]" />
+                Search
+                <span className="rounded border border-[rgba(255,255,255,0.08)] px-2 py-0.5 text-[10px] text-[var(--ink-dim)]">
+                  Ctrl+K
                 </span>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => dispatch(toggleDarkMode())}
-            className="rounded-full"
-          >
-            {theme ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
+              </button>
             )}
-          </Button>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+            <button
+              type="button"
+              className="inline-flex rounded-full border border-[rgba(255,255,255,0.08)] p-2 text-[var(--ink)] md:hidden"
+              onClick={() => setIsMenuOpen((value) => !value)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden mt-4 bg-white/95 dark:bg-gray-900 rounded-lg shadow-lg"
-        >
-          <nav className="flex flex-col space-y-4 p-4">
+        <div className="terminal-frame mx-auto mt-3 max-w-7xl rounded-[22px] p-4 md:hidden">
+          <div className="flex flex-col gap-4">
             {navItems.map((item) => {
-              const isActive = pathname === item.path || 
-                            (item.path !== '/' && pathname.startsWith(item.path));
-              
+              const isActive =
+                item.path === "/"
+                  ? pathname === "/"
+                  : item.path.startsWith("http")
+                    ? false
+                    : pathname.startsWith(item.path);
+
               return (
-                <Link href={item.path} key={item.path}>
-                  <span
-                    className={`relative text-base font-medium transition-colors duration-300 block py-2 ${
-                      isActive
-                        ? 'text-black dark:text-gray-300'
-                        : 'text-gray-700 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-950'
-                    }`}
-                    onClick={() => {
-                      onItemClick?.();
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    {item.label}
-                    {isActive && (
-                      <motion.span
-                        layoutId="navbar-indicator-mobile"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-white dark:bg-gray-900"
-                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                      />
-                    )}
-                  </span>
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  prefetch={!item.path.startsWith("http")}
+                  rel={item.path.startsWith("http") ? "noreferrer" : undefined}
+                  target={item.path.startsWith("http") ? "_blank" : undefined}
+                  className={`text-sm uppercase tracking-[0.18em] ${
+                    isActive ? "text-[var(--yellow)]" : "text-[var(--ink-dim)]"
+                  }`}
+                  onClick={() => {
+                    onItemClick?.();
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {item.label}
                 </Link>
               );
             })}
-          </nav>
-        </motion.div>
+
+            {onOpenSearch && (
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(122,223,245,0.16)] px-4 py-3 text-left text-xs uppercase tracking-[0.18em] text-[var(--ink)]"
+                onClick={() => {
+                  onOpenSearch();
+                  setIsMenuOpen(false);
+                }}
+              >
+                <Command className="h-4 w-4 text-[var(--cyan)]" />
+                Open Search
+              </button>
+            )}
+          </div>
+        </div>
       )}
-      </div>
     </nav>
   );
 };

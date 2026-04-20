@@ -7,7 +7,7 @@ export const skills = [
     category: "Backend",
     items: ["Node.js", "Express", "MongoDB", "PostgreSQL"],
   },
-  { category: "DevOps", items: ["Docker", "CI/CD", "AWS", "Vercel"] },
+  { category: "Tools", items: ["Git", "Docker", "Linux", "Vercel"] },
 ];
 export const featuredprojects = [
   {
@@ -18,7 +18,7 @@ export const featuredprojects = [
     image: "/api/placeholder/400/300",
     github: "#",
     demo: "#",
-    video: "data/groupdiary1.mp4",
+    video: "/data/groupdiary1.mp4",
   },
   {
     title: "Kura-kani",
@@ -27,7 +27,7 @@ export const featuredprojects = [
     image: "/api/placeholder/400/300",
     github: "#",
     demo: "#",
-    video: "data/kurakani.mp4",
+    video: "/data/kurakani.mp4",
   },
 ];
 
