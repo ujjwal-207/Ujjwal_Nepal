@@ -13,6 +13,7 @@ interface NavbarProps {
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Projects", path: "/projects" },
+  { label: "Experience", path: "/#experience" },
   { label: "Skills", path: "/#skills" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/contact" },

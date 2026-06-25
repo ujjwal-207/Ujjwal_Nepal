@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import { Projects } from "./FeaturedProjects";
 import Navbar from "./navbar";
 import SkillsSection from "./skills";
+import ExperienceSection from "./ExperienceSection";
 
 type SearchGroup = "Sections" | "Headers" | "Projects" | "Commands";
 
@@ -33,6 +34,7 @@ type SearchItem = {
 const sectionEntries = [
   { label: "home", command: "cd home/", target: "home" },
   { label: "projects", command: "cd projects/", target: "projects" },
+  { label: "experience", command: "cd experience/", target: "experience" },
   { label: "skills", command: "cd skills/", target: "skills" },
   { label: "blogs", command: "open blogs", href: "/blogs" },
   { label: "contact", command: "cd contact/", target: "contact" },
@@ -87,6 +89,7 @@ function matchesSearch(item: SearchItem, query: string) {
 }
 
 const terminalLines = [
+  "work --company \"Cherdung Infotech\" --role \"Full Stack Developer\"",
   "npm run ship -- --with-rhythm",
   "pnpm build && pnpm deploy",
   "open /blogs",
@@ -342,14 +345,15 @@ const Portfolio = () => {
 
               <div className="grid gap-8 p-6 lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
                 <div>
-                  <p className="terminal-kicker">full-stack engineer</p>
+                  <p className="terminal-kicker">full-stack developer at Cherdung Infotech</p>
                   <h1 className="terminal-title mt-4 text-5xl leading-[0.9] md:text-7xl">
                     Ujjwal <em>Nepal</em>
                   </h1>
                   <p className="terminal-copy mt-6 max-w-2xl text-sm md:text-base">
-                    I build full-stack products with polished interfaces,
-                    dependable backend systems, and clean user flows from idea
-                    to deployment.
+                    I currently work as a Full Stack Developer at Cherdung
+                    Infotech, building production-ready products with Next.js,
+                    Supabase, dependable backend systems, and clean user flows
+                    from idea to deployment.
                   </p>
 
                   <div className="mt-8 flex flex-wrap gap-3">
@@ -363,18 +367,18 @@ const Portfolio = () => {
                     </button>
                   </div>
 
-                  <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                    <div className="terminal-stat">
-                      <span className="label">focus</span>
-                      <span className="value">Next.js</span>
+                  <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                    <div className="terminal-stat" title="Focus: Next.js">
+                      <span className="label" title="focus">focus</span>
+                      <span className="value" title="Next.js">Next.js</span>
                     </div>
-                    <div className="terminal-stat">
-                      <span className="label">backend</span>
-                      <span className="value">Node.js</span>
+                    <div className="terminal-stat" title="Data: Supabase">
+                      <span className="label" title="data">data</span>
+                      <span className="value" title="Supabase">Supabase</span>
                     </div>
-                    <div className="terminal-stat">
-                      <span className="label">writing</span>
-                      <span className="value">Blogs</span>
+                    <div className="terminal-stat" title="Current Role: Cherdung">
+                      <span className="label" title="current role">current role</span>
+                      <span className="value" title="Cherdung">Cherdung</span>
                     </div>
                   </div>
                 </div>
@@ -514,6 +518,7 @@ const Portfolio = () => {
             </div>
 
             <Projects />
+            <ExperienceSection />
             <SkillsSection />
 
             <section id="contact" className="grid-contact terminal-pane">

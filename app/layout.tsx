@@ -4,8 +4,8 @@ import ReduxProvider from "./Store/Provider";
 
 export const metadata: Metadata = {
   title: "Ujjwal Nepal - Full Stack Developer",
-  description: "Full Stack Developer specializing in modern web technologies. Building exceptional digital experiences with React, Next.js, Node.js, and cloud technologies.",
-  keywords: ["Full Stack Developer", "React", "Next.js", "Node.js", "TypeScript", "Portfolio", "Ujjwal Nepal"],
+  description: "Full Stack Developer at Cherdung Infotech building modern products with Next.js, Supabase, TypeScript, and scalable web technologies.",
+  keywords: ["Full Stack Developer", "Cherdung Infotech", "React", "Next.js", "Supabase", "TypeScript", "Portfolio", "Ujjwal Nepal"],
   authors: [{ name: "Ujjwal Nepal", url: "https://ujjwal-nepal.com.np" }],
   creator: "Ujjwal Nepal",
   metadataBase: new URL("https://ujjwal-nepal.com.np"),
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://ujjwal-nepal.com.np",
     title: "Ujjwal Nepal - Full Stack Developer",
-    description: "Full Stack Developer specializing in modern web technologies. Building exceptional digital experiences.",
+    description: "Full Stack Developer at Cherdung Infotech working with Next.js and Supabase.",
     siteName: "Ujjwal Nepal Portfolio",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ujjwal Nepal - Full Stack Developer",
-    description: "Full Stack Developer specializing in modern web technologies.",
+    description: "Full Stack Developer at Cherdung Infotech working with Next.js and Supabase.",
     creator: "@Ujee690",
   },
   robots: {

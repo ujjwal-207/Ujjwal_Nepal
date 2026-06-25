@@ -5,7 +5,7 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "MongoDB", "PostgreSQL"],
+    items: ["Supabase", "Node.js", "Express", "PostgreSQL"],
   },
   { category: "Tools", items: ["Git", "Docker", "Linux", "Vercel"] },
 ];
@@ -60,3 +60,42 @@ export const projects =[
   }
 
 ]
+
+export const experiences = [
+  {
+    company: "Cherdung Infotech",
+    role: "Full Stack Developer",
+    period: "Apr 2026 – Present",
+    type: "current",
+    description: "Building production-ready full-stack applications with modern web technologies and scalable backend systems.",
+    projects: [
+      { name: "SkyTrips.com", url: "https://skytrips.com/", description: "Travel platform" }
+    ],
+    techStack: ["React", "Supabase", "Express", "PostgreSQL"],
+  },
+  {
+    company: "Bitspanda",
+    role: "Frontend Developer",
+    period: "Mar 2025 – Apr 2026",
+    type: "past",
+    url: "https://bitspanda.com/",
+    description: "Developed frontend systems for multiple production products using React and Next.js.",
+    projects: [
+      { name: "HumanEdge Nepal", url: "https://app.humanedgenepal.com/", description: "LMS platform" },
+      { name: "PartsMoo", url: "https://www.partsmoo.com/", description: "E-commerce" },
+      { name: "Karasto", description: "CRM platform" },
+      { name: "Accounting Software" },
+    ],
+    techStack: ["React", "Next.js"],
+  },
+  {
+    company: "Bindabasini Music",
+    role: "Graphic Designer",
+    period: "Jan 2025 – Apr 2025",
+    type: "past",
+    description: "Handled design work and created visual assets including thumbnails for the music brand.",
+    projects: [],
+    techStack: [],
+  },
+];
+

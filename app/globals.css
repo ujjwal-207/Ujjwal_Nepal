@@ -202,6 +202,7 @@
     grid-template-areas:
       "hero stack"
       "projects stack"
+      "experience experience"
       "skills contact";
   }
 
@@ -215,6 +216,10 @@
 
   .grid-projects {
     grid-area: projects;
+  }
+
+  .grid-experience {
+    grid-area: experience;
   }
 
   .grid-skills {
@@ -357,6 +362,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(12, 9, 22, 0.68);
     padding: 14px 16px;
+    min-width: 0;
   }
 
   .terminal-stat .label {
@@ -364,14 +370,17 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-mute);
+    display: block;
+    overflow-wrap: break-word;
   }
 
   .terminal-stat .value {
     margin-top: 0.45rem;
     display: block;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 1.6vw, 1.5rem);
     color: var(--ink);
     font-family: var(--font-display);
+    overflow-wrap: break-word;
   }
 
   .terminal-card {
@@ -420,6 +429,47 @@
     color: var(--ink-dim);
     font-size: 12px;
   }
+
+  .experience-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .experience-timeline::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 5px;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .experience-entry {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .experience-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .experience-dot {
+    position: absolute;
+    left: -28px;
+    top: 18px;
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--line-2);
+    background: var(--pane);
+  }
+
+  .experience-dot.current {
+    border-color: var(--magenta);
+    background: var(--magenta);
+    box-shadow: 0 0 12px rgba(240, 92, 182, 0.5);
+  }
 }
 
 @keyframes spin-slow {
@@ -467,6 +517,7 @@
       "hero"
       "stack"
       "projects"
+      "experience"
       "skills"
       "contact";
   }

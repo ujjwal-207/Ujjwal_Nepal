@@ -63,9 +63,9 @@ export default async function Blog({
                     decisions that mattered after the code left local dev.
                   </p>
                 </div>
-                <div className="terminal-stat min-w-[150px]">
-                  <span className="label">current page</span>
-                  <span className="value">{currentPage}</span>
+                <div className="terminal-stat min-w-[150px]" title={`Current Page: ${currentPage}`}>
+                  <span className="label" title="current page">current page</span>
+                  <span className="value" title={String(currentPage)}>{currentPage}</span>
                 </div>
               </div>
 

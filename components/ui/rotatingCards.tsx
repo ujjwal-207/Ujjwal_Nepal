@@ -34,9 +34,9 @@ const RotatingCards = () => {
       tint: "rgba(232,201,122,0.2)",
     },
     {
-      title: "MongoDB",
-      description: "Flexible data modeling for collaborative products",
-      icon: "🍃",
+      title: "Supabase",
+      description: "Auth, Postgres, storage, and realtime product features",
+      icon: "🟩",
       tint: "rgba(176,106,179,0.22)",
     },
     {
